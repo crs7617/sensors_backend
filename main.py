@@ -29,7 +29,7 @@ class SensorData(BaseModel):
 def load_model():
     try:
         with open('model/weather_model.pkl', 'rb') as f:
-            return pickle.load(f)
+            return pickle.load(f)['model']
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="Model not found. Please train the model first.")
 
